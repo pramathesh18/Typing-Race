@@ -1,35 +1,41 @@
-/* Warm Gold/Yellow Background, Teal & Green Accents, Grey Panels & Pink Highlights */
-:root {
-  /* Warm Yellow Background Palette (From provided image sample) */
-  --bg-color: #F8D038;
-  --bg-gradient-start: #FCE055;
-  --bg-gradient-end: #F5C420;
-  
-  /* Primary Accent: Vibrant Teal / Turquoise */
-  --primary-color: #00E5A3;
-  --primary-hover: #00FFB7;
-  --primary-text: #05291E;
+/* Strict Role & Ratio Based Design System:
+   - 60% Main background: #92EEFF
+   - 20% Cards: #B7F7D4
+   - 10% Main text (only on text): #050816
+   - 5% Secondary cards / sections: #FFFFFF
+   - 3% Primary CTA / important action: #FF3D81
+   - 2% Highlight / achievement: #FFF449
+   - Borders / subtle details: #050816 at low opacity (rgba(5, 8, 22, 0.15))
+*/
 
-  /* Secondary Accent: Electric Green & Vibrant Pink */
-  --secondary-color: #10B981;
-  --secondary-hover: #059669;
-  --accent-pink: #FF65A3;
-  --accent-pink-hover: #FF85B6;
+:root {
+  /* Main Background (60% Ratio) */
+  --bg-color: #92EEFF;
   
-  /* Text Colors optimized for legibility against dark grey elements & warm yellow background */
-  --text-color: #FFFFFF;
-  --text-dark: #1E293B;
-  --text-muted: #94A3B8;
+  /* Primary Cards (20% Ratio) */
+  --card-bg: #B7F7D4;
+  --card-bg-light: #B7F7D4;
   
-  /* Card / Container Panels: Sleek Deep Charcoal Grey */
-  --card-bg: #1E222D;
-  --card-bg-light: #2A2F3D;
-  --card-border: #33394B;
+  /* Secondary Cards / Sections (5% Ratio) */
+  --section-bg: #FFFFFF;
   
-  /* Glow Effects */
-  --glow-primary: rgba(0, 229, 163, 0.45);
-  --glow-secondary: rgba(16, 185, 129, 0.45);
-  --glow-pink: rgba(255, 101, 163, 0.45);
+  /* Main Text (10% Ratio - Strictly only on text) */
+  --text-color: #050816;
+  --text-dark: #050816;
+  --text-muted: rgba(5, 8, 22, 0.65);
+  
+  /* Primary CTA / Important Actions (3% Ratio) */
+  --primary-cta: #FF3D81;
+  --primary-cta-hover: #E02B6D;
+  --primary-color: #FF3D81;
+  
+  /* Highlight / Achievements (2% Ratio) */
+  --highlight-color: #FFF449;
+  --highlight-hover: #FFE81A;
+
+  /* Borders / Subtle Details: #050816 at low opacity */
+  --border-color: rgba(5, 8, 22, 0.15);
+  --border-strong: rgba(5, 8, 22, 0.3);
   
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace, monospace;
@@ -50,12 +56,10 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  /* Smooth Warm Yellow Arc Gradient Backdrop based on user's image */
   background-image: 
-    radial-gradient(ellipse 120% 80% at 50% -20%, var(--bg-gradient-start) 0%, var(--bg-color) 60%, var(--bg-gradient-end) 100%),
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 36px 36px, 36px 36px;
+    linear-gradient(to right, rgba(5, 8, 22, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(5, 8, 22, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px;
 }
 
 #root {
@@ -68,26 +72,26 @@ body {
 /* Typography Utilities */
 h1, h2, h3 {
   font-weight: 900;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: var(--text-dark);
 }
 
 .text-primary {
-  color: var(--primary-color);
+  color: var(--primary-cta);
 }
 
 .text-secondary {
-  color: var(--secondary-color);
+  color: var(--text-dark);
 }
 
 .glow-text-primary {
-  color: var(--primary-color);
-  text-shadow: 0 0 16px var(--glow-primary);
+  color: var(--primary-cta);
+  text-shadow: 0 2px 10px rgba(255, 61, 129, 0.3);
 }
 
 .glow-text-secondary {
-  color: var(--secondary-color);
-  text-shadow: 0 0 16px var(--glow-secondary);
+  color: var(--text-dark);
 }
 
 /* Base Component Button Styles */
@@ -101,7 +105,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-radius: 8px;
-  border: 2px solid transparent;
+  border: 2px solid var(--text-dark);
   cursor: pointer;
   transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
@@ -119,82 +123,63 @@ h1, h2, h3 {
   box-shadow: none !important;
 }
 
-/* Teal Primary Button */
+/* Primary CTA Button: #FF3D81 */
 .btn-primary {
-  background-color: var(--primary-color);
-  color: var(--primary-text);
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 18px rgba(0, 229, 163, 0.35);
+  background-color: var(--primary-cta);
+  color: #FFFFFF;
+  border-color: var(--text-dark);
+  box-shadow: 0 4px 14px rgba(255, 61, 129, 0.4);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--primary-hover);
-  border-color: var(--primary-hover);
-  box-shadow: 0 6px 26px rgba(0, 229, 163, 0.6);
+  background-color: var(--primary-cta-hover);
+  box-shadow: 0 6px 20px rgba(255, 61, 129, 0.6);
   transform: translateY(-2px);
 }
 
-/* Emerald Green Secondary Button */
-.btn-secondary {
-  background-color: var(--secondary-color);
-  color: #FFFFFF;
-  border-color: var(--secondary-color);
-  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+/* Highlight / Achievement Button: #FFF449 */
+.btn-secondary, .btn-pink {
+  background-color: var(--highlight-color);
+  color: var(--text-dark);
+  border-color: var(--text-dark);
+  box-shadow: 0 4px 14px rgba(255, 244, 73, 0.4);
 }
 
-.btn-secondary:hover:not(:disabled) {
-  background-color: var(--secondary-hover);
-  border-color: var(--secondary-hover);
-  box-shadow: 0 6px 26px rgba(16, 185, 129, 0.6);
+.btn-secondary:hover:not(:disabled), .btn-pink:hover:not(:disabled) {
+  background-color: var(--highlight-hover);
   transform: translateY(-2px);
 }
 
-/* Pink Accent Button Option */
-.btn-pink {
-  background-color: var(--accent-pink);
-  color: #FFFFFF;
-  border-color: var(--accent-pink);
-  box-shadow: 0 4px 18px rgba(255, 101, 163, 0.35);
-}
-
-.btn-pink:hover:not(:disabled) {
-  background-color: var(--accent-pink-hover);
-  border-color: var(--accent-pink-hover);
-  box-shadow: 0 6px 26px rgba(255, 101, 163, 0.6);
-  transform: translateY(-2px);
-}
-
+/* Secondary Section Button: #FFFFFF */
 .btn-outline {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--text-color);
-  border-color: var(--card-border);
+  background-color: var(--section-bg);
+  color: var(--text-dark);
+  border-color: var(--text-dark);
 }
 
 .btn-outline:hover:not(:disabled) {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  background-color: rgba(0, 229, 163, 0.1);
+  background-color: var(--card-bg);
   transform: translateY(-1px);
 }
 
-/* Dark Grey Card Panel Container */
+/* Main Card Panels: #B7F7D4 */
 .panel {
   background-color: var(--card-bg);
-  border: 2px solid var(--card-border);
+  border: 2px solid var(--border-strong);
   border-radius: 16px;
   padding: 2.25rem;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 36px rgba(5, 8, 22, 0.08);
 }
 
-/* Header Navbar Styling */
+/* Header Navbar: #FFFFFF (Secondary section) */
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2.25rem;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  background-color: var(--card-bg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid var(--border-strong);
+  background-color: var(--section-bg);
+  box-shadow: 0 2px 12px rgba(5, 8, 22, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -204,17 +189,16 @@ h1, h2, h3 {
   font-size: 1.6rem;
   font-weight: 900;
   letter-spacing: 0.12em;
-  color: var(--primary-color);
+  color: var(--primary-cta);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  text-shadow: 0 0 14px var(--glow-primary);
-  transition: text-shadow 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .app-logo:hover {
-  text-shadow: 0 0 22px var(--glow-primary);
+  opacity: 0.85;
 }
 
 .app-main {
@@ -235,8 +219,8 @@ h1, h2, h3 {
   color: var(--text-dark);
   font-weight: 700;
   font-size: 0.85rem;
-  border-top: 2px solid rgba(0, 0, 0, 0.08);
-  background-color: rgba(0, 0, 0, 0.05);
+  border-top: 2px solid var(--border-color);
+  background-color: var(--section-bg);
 }
 
 /* Responsive Layout Optimizations */

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { socket } from './services/socket';
-import { Header } from './components/Header';
 import { ConnectionBanner } from './components/ConnectionBanner';
 import { LandingScreen } from './screens/LandingScreen';
+import { DetailsScreen } from './screens/DetailsScreen';
 import { CreatePartyScreen } from './screens/CreatePartyScreen';
 import { JoinPartyScreen } from './screens/JoinPartyScreen';
 import { LobbyScreen } from './screens/LobbyScreen';
@@ -68,6 +68,8 @@ function App() {
     switch (currentScreen) {
       case 'landing':
         return <LandingScreen onNavigate={setCurrentScreen} />;
+      case 'details':
+        return <DetailsScreen onNavigate={setCurrentScreen} />;
       case 'create-party':
         return (
           <CreatePartyScreen 
@@ -121,21 +123,10 @@ function App() {
   };
 
   return (
-    <>
-      <Header 
-        currentScreen={currentScreen} 
-        onNavigate={setCurrentScreen}
-        username={username}
-        setUsername={setUsername}
-      />
-      <main className="app-main">
-        <ConnectionBanner />
-        {renderScreen()}
-      </main>
-      <footer className="app-footer">
-        <p>&copy; {new Date().getFullYear()} TYPE RACE — Real-time Multiplayer Typing</p>
-      </footer>
-    </>
+    <main className="app-main">
+      <ConnectionBanner />
+      {renderScreen()}
+    </main>
   );
 }
 

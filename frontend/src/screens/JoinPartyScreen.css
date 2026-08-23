@@ -11,6 +11,7 @@
 
 .join-party-container .title {
   font-size: 2rem;
+  color: var(--text-dark);
 }
 
 .join-party-container .subtitle {
@@ -35,9 +36,11 @@
 .input-label {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
-  color: var(--text-muted);
+  color: var(--text-dark);
+  font-weight: 800;
 }
 
+/* Converted from dark #050505 to Pink (#FF3D81) background with white text */
 .party-code-input {
   width: 100%;
   max-width: 280px;
@@ -46,28 +49,35 @@
   font-family: var(--font-mono);
   text-align: center;
   letter-spacing: 0.3em;
-  background-color: #050505;
-  border: 2px solid var(--card-border);
-  border-radius: 8px;
-  color: var(--secondary-color);
+  background-color: var(--primary-cta);
+  border: 2px solid var(--text-dark);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-weight: 900;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255, 61, 129, 0.4);
+}
+
+.party-code-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .party-code-input:focus {
-  border-color: var(--secondary-color);
-  box-shadow: 0 0 15px var(--glow-secondary);
+  border-color: var(--text-dark);
+  box-shadow: 0 6px 20px rgba(255, 61, 129, 0.6);
+  transform: translateY(-2px);
 }
 
 .input-error {
-  border-color: #ff4d4d !important;
-  box-shadow: 0 0 12px rgba(255, 77, 77, 0.4) !important;
+  border-color: var(--text-dark) !important;
+  box-shadow: 0 0 16px rgba(255, 61, 129, 0.6) !important;
 }
 
 .error-text {
-  color: #ff4d4d;
+  color: var(--primary-cta);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-top: 0.25rem;
 }
 

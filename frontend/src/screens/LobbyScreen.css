@@ -13,7 +13,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 2px solid var(--border-strong);
   padding-bottom: 1rem;
 }
 
@@ -30,9 +30,10 @@
 }
 
 .code-text {
-  color: var(--primary-color);
+  color: var(--primary-cta);
   font-family: var(--font-mono);
   font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .lobby-meta {
@@ -42,16 +43,17 @@
 }
 
 .player-count-badge {
-  background: var(--card-bg-light);
-  border: 1px solid var(--card-border);
+  background: var(--section-bg);
+  border: 1px solid var(--border-strong);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-dark);
+  font-weight: 700;
 }
 
 .count-text {
-  color: var(--primary-color);
+  color: var(--primary-cta);
   font-family: var(--font-mono);
 }
 
@@ -75,18 +77,19 @@
 }
 
 .active-slot {
-  background: var(--card-bg-light);
-  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  border: 2px solid var(--border-strong);
 }
 
 .local-slot {
-  border-color: rgba(0, 229, 163, 0.6);
-  box-shadow: 0 0 16px rgba(0, 229, 163, 0.15);
+  border-color: var(--text-dark);
+  background: #FFF449;
+  box-shadow: 0 0 16px rgba(255, 244, 73, 0.4);
 }
 
 .slot-car-icon {
   font-size: 2rem;
-  filter: drop-shadow(0 0 8px currentColor);
+  filter: drop-shadow(0 2px 4px rgba(5,8,22,0.2));
 }
 
 .slot-player-info {
@@ -101,12 +104,12 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .slot-username {
   font-size: 1rem;
-  color: var(--text-color);
+  color: var(--text-dark);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -114,7 +117,7 @@
 }
 
 .you-tag {
-  color: var(--primary-color);
+  color: var(--primary-cta);
   font-size: 0.7rem;
 }
 
@@ -133,43 +136,42 @@
 }
 
 .host-badge {
-  background: rgba(255, 101, 163, 0.15);
-  color: var(--accent-pink);
-  border: 1px solid rgba(255, 101, 163, 0.4);
+  background: var(--primary-cta);
+  color: #FFFFFF;
+  border: 1px solid var(--text-dark);
 }
 
 .ready-badge.is-ready {
-  background: rgba(0, 229, 163, 0.15);
-  color: var(--primary-color);
-  border: 1px solid rgba(0, 229, 163, 0.4);
+  background: var(--highlight-color);
+  color: var(--text-dark);
+  border: 1px solid var(--text-dark);
 }
 
 .ready-badge.not-ready {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--section-bg);
   color: var(--text-muted);
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--border-strong);
 }
 
 /* Empty Slot */
 .empty-slot {
-  background: rgba(19, 22, 31, 0.4);
-  border: 2px dashed #2E3445;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px dashed var(--border-strong);
   justify-content: center;
   flex-direction: column;
   gap: 0.4rem;
-  opacity: 0.7;
 }
 
 .empty-slot-icon {
   font-size: 1.25rem;
-  color: #475269;
+  color: var(--text-muted);
 }
 
 .empty-slot-text {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: #64748B;
-  font-weight: 700;
+  color: var(--text-dark);
+  font-weight: 800;
 }
 
 /* Action Controls */
@@ -180,7 +182,7 @@
   flex-wrap: wrap;
   margin-top: 1rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--card-border);
+  border-top: 2px solid var(--border-strong);
 }
 
 .ready-toggle-btn {
