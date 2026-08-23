@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: typing-race-backend
+    env: node
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: CLIENT_ORIGIN
+        value: "*"
+
+  - type: web
+    name: typing-race-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_SOCKET_URL
+        fromService:
+          type: web
+          name: typing-race-backend
+          property: host

@@ -1,0 +1,78 @@
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.username-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.username-display {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.username-display:hover {
+  color: var(--primary-color);
+}
+
+.edit-icon {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.username-edit-box {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.username-input {
+  background: #050505;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  color: var(--primary-color);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  width: 120px;
+}
+
+.btn-icon-save {
+  background: var(--primary-color);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}

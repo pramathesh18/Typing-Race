@@ -1,0 +1,261 @@
+.lobby-container {
+  max-width: 850px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.lobby-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1rem;
+}
+
+.lobby-title {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.party-code-badge {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+.code-text {
+  color: var(--primary-color);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+}
+
+.lobby-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-count-badge {
+  background: #050505;
+  border: 1px solid var(--card-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.count-text {
+  color: var(--primary-color);
+  font-family: var(--font-mono);
+}
+
+/* Simulator / Testing Controls */
+.dev-test-bar {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed #333344;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+}
+
+.dev-label {
+  color: var(--text-muted);
+  font-weight: bold;
+}
+
+.btn-dev {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.btn-dev.active {
+  background: var(--secondary-color);
+  color: #fff;
+  border-color: var(--secondary-color);
+}
+
+.dev-divider {
+  color: #444;
+}
+
+/* Player Grid Slots */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.player-slot {
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  min-height: 90px;
+  transition: all 0.2s ease;
+}
+
+.active-slot {
+  background: #09090d;
+  border: 1px solid var(--card-border);
+}
+
+.local-slot {
+  border-color: rgba(255, 212, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255, 212, 0, 0.1);
+}
+
+.slot-car-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.slot-player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  text-align: left;
+}
+
+.slot-username-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+
+.slot-username {
+  font-size: 1rem;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.you-tag {
+  color: var(--primary-color);
+  font-size: 0.7rem;
+}
+
+.slot-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.host-badge {
+  background: rgba(255, 212, 0, 0.15);
+  color: var(--primary-color);
+  border: 1px solid rgba(255, 212, 0, 0.4);
+}
+
+.ready-badge.is-ready {
+  background: rgba(57, 255, 20, 0.15);
+  color: #39FF14;
+  border: 1px solid rgba(57, 255, 20, 0.4);
+}
+
+.ready-badge.not-ready {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--card-border);
+}
+
+.color-picker-mini {
+  display: flex;
+  gap: 0.3rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.color-dot:hover {
+  transform: scale(1.3);
+}
+
+.color-dot.selected {
+  transform: scale(1.3);
+  box-shadow: 0 0 6px currentColor;
+  border-color: #ffffff;
+}
+
+/* Empty Slot */
+.empty-slot {
+  background: rgba(5, 5, 5, 0.5);
+  border: 2px dashed #1c1c28;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.4rem;
+  opacity: 0.6;
+}
+
+.empty-slot-icon {
+  font-size: 1.25rem;
+  color: #333344;
+}
+
+.empty-slot-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #555566;
+  font-weight: 700;
+}
+
+/* Action Controls */
+.lobby-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.ready-toggle-btn {
+  min-width: 180px;
+}
+
+.start-race-btn {
+  min-width: 200px;
+}
+
+.leave-btn {
+  min-width: 140px;
+}
