@@ -1,20 +1,28 @@
 const CAR_COLORS = [
-  '#FFD400', // Electric Yellow
-  '#9B4DFF', // Neon Purple
-  '#00F0FF', // Cyber Cyan
-  '#39FF14', // Electric Lime
-  '#FF007F', // Hot Pink
-  '#FF5500'  // Blaze Orange
+  '#00E5A3', // Vibrant Teal
+  '#FF65A3', // Bright Pink
+  '#10B981', // Emerald Green
+  '#F5C420', // Gold Yellow
+  '#38BDF8', // Sky Blue
+  '#A855F7'  // Neon Violet
 ];
 
 const SAMPLE_TEXTS = [
   "The quick brown fox jumps over the lazy dog. Speed and accuracy determine who crosses the finish line first in this high-adrenaline typing competition.",
   "Engine revving at the starting grid, waiting for the green signal. Precise keystrokes propel your vehicle forward at maximum velocity.",
-  "Victory favors the typist who maintains laser focus under pressure. Fast fingers and zero mistakes create unstoppable race champions."
+  "Victory favors the typist who maintains laser focus under pressure. Fast fingers and zero mistakes create unstoppable race champions.",
+  "Aerodynamic design and lightning reflexes are essential on the track. Shift into high gear and push your typing engine to its ultimate performance limit.",
+  "Precision under heat separates legendary racing typists from ordinary competitors. Keep your eyes on the track and hit every single character with perfect timing.",
+  "Supercharged motors roar as neon lights illuminate the grandstand. Accelerate past your rivals and claim victory on the checkered finish line."
 ];
 
 // Temporary in-memory rooms data structure: Map<partyCode, Party>
 const rooms = new Map();
+
+function getRandomText(currentText = '') {
+  const choices = SAMPLE_TEXTS.filter(t => t !== currentText);
+  return choices[Math.floor(Math.random() * choices.length)] || SAMPLE_TEXTS[0];
+}
 
 function generatePartyCode() {
   let code;
@@ -64,7 +72,7 @@ function createRoom(hostSocketId, username, requestedCode) {
     players: [hostPlayer],
     maxPlayers: 6,
     status: 'waiting',
-    text: SAMPLE_TEXTS[Math.floor(Math.random() * SAMPLE_TEXTS.length)],
+    text: getRandomText(),
     startTime: null
   };
 
@@ -174,7 +182,8 @@ function startRace(socketId, partyCode) {
 
   party.status = 'countdown';
   party.startTime = Date.now();
-  party.text = SAMPLE_TEXTS[Math.floor(Math.random() * SAMPLE_TEXTS.length)];
+  // Pick a fresh new random text different from the previous race text
+  party.text = getRandomText(party.text);
   
   party.players.forEach(p => {
     p.progress = 0;

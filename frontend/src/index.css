@@ -1,16 +1,35 @@
-/* Pure Black / Electric Yellow / Neon Purple Visual System */
+/* Warm Gold/Yellow Background, Teal & Green Accents, Grey Panels & Pink Highlights */
 :root {
-  --bg-color: #000000;
-  --primary-color: #FFD400;
-  --primary-hover: #FFE033;
-  --secondary-color: #9B4DFF;
-  --secondary-hover: #B270FF;
-  --text-color: #F8F9FA;
-  --text-muted: #8E8E93;
-  --card-bg: #0A0A0E;
-  --card-border: #1E1E26;
-  --glow-primary: rgba(255, 212, 0, 0.4);
-  --glow-secondary: rgba(155, 77, 255, 0.4);
+  /* Warm Yellow Background Palette (From provided image sample) */
+  --bg-color: #F8D038;
+  --bg-gradient-start: #FCE055;
+  --bg-gradient-end: #F5C420;
+  
+  /* Primary Accent: Vibrant Teal / Turquoise */
+  --primary-color: #00E5A3;
+  --primary-hover: #00FFB7;
+  --primary-text: #05291E;
+
+  /* Secondary Accent: Electric Green & Vibrant Pink */
+  --secondary-color: #10B981;
+  --secondary-hover: #059669;
+  --accent-pink: #FF65A3;
+  --accent-pink-hover: #FF85B6;
+  
+  /* Text Colors optimized for legibility against dark grey elements & warm yellow background */
+  --text-color: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-muted: #94A3B8;
+  
+  /* Card / Container Panels: Sleek Deep Charcoal Grey */
+  --card-bg: #1E222D;
+  --card-bg-light: #2A2F3D;
+  --card-border: #33394B;
+  
+  /* Glow Effects */
+  --glow-primary: rgba(0, 229, 163, 0.45);
+  --glow-secondary: rgba(16, 185, 129, 0.45);
+  --glow-pink: rgba(255, 101, 163, 0.45);
   
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace, monospace;
@@ -31,12 +50,12 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  /* Subdued racing grid backdrop pattern */
+  /* Smooth Warm Yellow Arc Gradient Backdrop based on user's image */
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(155, 77, 255, 0.08) 0%, transparent 60%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+    radial-gradient(ellipse 120% 80% at 50% -20%, var(--bg-gradient-start) 0%, var(--bg-color) 60%, var(--bg-gradient-end) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
 }
 
 #root {
@@ -71,7 +90,7 @@ h1, h2, h3 {
   text-shadow: 0 0 16px var(--glow-secondary);
 }
 
-/* Base Component Styles & Hover Animations */
+/* Base Component Button Styles */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -81,7 +100,7 @@ h1, h2, h3 {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 2px solid transparent;
   cursor: pointer;
   transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
@@ -100,71 +119,89 @@ h1, h2, h3 {
   box-shadow: none !important;
 }
 
+/* Teal Primary Button */
 .btn-primary {
   background-color: var(--primary-color);
-  color: #000000;
+  color: var(--primary-text);
   border-color: var(--primary-color);
-  box-shadow: 0 0 18px rgba(255, 212, 0, 0.25);
+  box-shadow: 0 4px 18px rgba(0, 229, 163, 0.35);
 }
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--primary-hover);
   border-color: var(--primary-hover);
-  box-shadow: 0 0 28px rgba(255, 212, 0, 0.6);
+  box-shadow: 0 6px 26px rgba(0, 229, 163, 0.6);
   transform: translateY(-2px);
 }
 
+/* Emerald Green Secondary Button */
 .btn-secondary {
-  background-color: transparent;
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: #FFFFFF;
   border-color: var(--secondary-color);
-  box-shadow: 0 0 18px rgba(155, 77, 255, 0.25);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: var(--secondary-color);
-  color: #ffffff;
-  box-shadow: 0 0 28px rgba(155, 77, 255, 0.6);
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  box-shadow: 0 6px 26px rgba(16, 185, 129, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Pink Accent Button Option */
+.btn-pink {
+  background-color: var(--accent-pink);
+  color: #FFFFFF;
+  border-color: var(--accent-pink);
+  box-shadow: 0 4px 18px rgba(255, 101, 163, 0.35);
+}
+
+.btn-pink:hover:not(:disabled) {
+  background-color: var(--accent-pink-hover);
+  border-color: var(--accent-pink-hover);
+  box-shadow: 0 6px 26px rgba(255, 101, 163, 0.6);
   transform: translateY(-2px);
 }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.05);
   color: var(--text-color);
   border-color: var(--card-border);
 }
 
 .btn-outline:hover:not(:disabled) {
-  border-color: var(--text-muted);
-  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: rgba(0, 229, 163, 0.1);
   transform: translateY(-1px);
 }
 
-/* Card / Container */
+/* Dark Grey Card Panel Container */
 .panel {
   background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar Layout */
+/* Header Navbar Styling */
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--card-border);
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
+  padding: 1rem 2.25rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .app-logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   color: var(--primary-color);
@@ -195,10 +232,11 @@ h1, h2, h3 {
 .app-footer {
   padding: 1.25rem;
   text-align: center;
-  color: var(--text-muted);
+  color: var(--text-dark);
+  font-weight: 700;
   font-size: 0.85rem;
-  border-top: 1px solid var(--card-border);
-  background-color: #000000;
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive Layout Optimizations */
